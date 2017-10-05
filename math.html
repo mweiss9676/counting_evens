@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/JavaScript" src="math.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+                rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1>Find Even Numbers Between Two Inputs</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <form name="numbersName" class="numbersForm" onsubmit="return findNums();" onreset="resetForm();">
+                            <div class="form-group">
+                                <label for="num1">Input 1</label>
+                                <input type="number" class="enterANumber" id="num1">
+                            </div>
+                                <br>
+                                <br>
+                            <div class="form-group">
+                                <label for="num2">Input 2</label>
+                                <input type="number" class="numbersForm" id="num2">
+                            </div>
+                                <br>
+                                <br>
+                            <div class="form-group">
+                                <label for="num3">Number to Iterate By</label>
+                                <input type="number" class="numbersForm" id="num3">
+                            </div>
+                                <br>
+                                <br>
+                            <div class="buttons-group">
+                                <button type="submit" id="submitButton" class="btn btn-default">Display Evens</button>
+                                <button type="reset" id="resetButton" class="btn">Reset</button>
+                            </div>
+                    </form>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table class="table table-striped" id="table" style="display:none;">
+                            <thead>
+                                <tr>
+                                    <th>Here are all the even numbers between <span id="returnFirstNumber"></span> and <span id="returnSecondNumber"></span> by <span id="returnThirdNumber"></span>'s</th>
+                                </tr>
+                            </thead>
+                            <tbody id="results">
+                                <tr>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
