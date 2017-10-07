@@ -2,57 +2,68 @@
 <html>
     <head>
         <script type="text/JavaScript" src="math.js"></script>
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-                rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather|raleway" rel="stylesheet">        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <style>
+             body {background-image: url(background.png); background-position: 0% 90%; background-attachment: fixed; background-repeat: no-repeat;}
+            .title {font-family: Merriweather, serif; font-size: 3em;}
+            .table {text-align: center; background-color: white;}
+            .numbersForm {width: 98%; font-family: raleway, sans-serif;}
+        </style>
     </head>
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-sm-12">
-                    <h1>Find Even Numbers Between Two Inputs</h1>
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6 title mb-4 mt-3">
+                    <p>Find Even Numbers</p>
                 </div>
+                <div class="col-sm-3"></div>
             </div>
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
                     <form name="numbersName" class="numbersForm" onsubmit="return findNums();" onreset="resetForm();">
                             <div class="form-group">
-                                <label for="num1">Input 1</label>
-                                <input type="number" class="enterANumber" id="num1">
+                                <label for="num1">Number</label>
+                                <input type="number" class="enterANumber numbersForm" id="num1" placeholder="enter a 'floor' number">
                             </div>
                                 <br>
                                 <br>
                             <div class="form-group">
-                                <label for="num2">Input 2</label>
-                                <input type="number" class="numbersForm" id="num2">
+                                <label for="num2">Number</label>
+                                <input type="number" class="numbersForm" id="num2" placeholder="enter a 'ceiling' number">
                             </div>
                                 <br>
                                 <br>
                             <div class="form-group">
-                                <label for="num3">Number to Iterate By</label>
-                                <input type="number" class="numbersForm" id="num3">
+                                <label for="num3">Number</label>
+                                <input type="number" class="numbersForm" id="num3" placeholder="enter a number to iterate by">
                             </div>
                                 <br>
                                 <br>
                             <div class="buttons-group">
-                                <button type="submit" id="submitButton" class="btn btn-default">Display Evens</button>
-                                <button type="reset" id="resetButton" class="btn">Reset</button>
+                                <button type="submit" id="submitButton" class="btn btn-basic">Display Evens</button>
+                                <button type="reset" id="resetButton" class="btn btn-default">Reset</button>
                             </div>
                     </form>
                 </div>
+                <div class="col-sm-4"></div>
+                </div>
                 <div class="row">
-                    <div class="col-sm-12">
-                        <table class="table table-striped" id="table" style="display:none;">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                        <table class="table table-striped mt-3" id="table" style="display:none;">
                             <thead>
                                 <tr>
                                     <th>Here are all the even numbers between <span id="returnFirstNumber"></span> and <span id="returnSecondNumber"></span> by <span id="returnThirdNumber"></span>'s</th>
                                 </tr>
                             </thead>
                             <tbody id="results">
-                                <tr>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
+                    <div class="col-sm-4"></div>
                 </div>
             </div>
         </div>

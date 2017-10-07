@@ -8,7 +8,7 @@ function findNums ()
     var num3 = parseInt(document.forms["numbersName"]["num3"].value);
 
     //checking to make sure the first number is a number, and greater than the second number
-    if (num1 == "" || isNaN(num1)) 
+    if (num1 == "" || isNaN(num1) || 0 > num1) 
     {
         alert("Please enter a NUMBER");
         document.forms["numbersName"]["num1"].parentElement.className = "form-group has-error";
@@ -16,18 +16,19 @@ function findNums ()
         return false;
     }
     //checking that the second number is a number and less than the first number
-    if (num2 == "" || isNaN(num2) || num1 > num2)
+    if (num2 == "" || isNaN(num2) || num1 > num2 || 0 >= num2)
     {
         alert("Please enter a NUMBER that is greater than your first number");
         document.forms["numbersName"]["num2"].parentElement.className = "form-group has-error";
         document.forms["numbersName"]["num2"].focus();
         return false;
     }
-    if (num3 == "" || isNaN(num3) || num3 > num2)
+    if (num3 == "" || isNaN(num3) || num3 > num2 || 0 >= num3)
     {
         alert("Please enter a NUMBER that is less than your second number");
         document.forms["numbersName"]["num3"].parentElement.className = "form-group has-error";
         document.forms["numbersName"]["num3"].focus();
+        return false;
     }
 
     //populating the table header with the numbers entered
@@ -73,17 +74,11 @@ function clearErrors ()
 function resetForm ()
 {
     clearErrors();
+    storage = [];
     document.forms["numbersName"]["num1"].value = "";
     document.forms["numbersName"]["num2"].value = "";
     document.forms["numbersName"]["num3"].value = "";  
-    // Get the <ul> element with id="myList"
-    var list = document.getElementById("table");
-    var sizeOfTable = document.getElementById("table").childElementCount;
-    alert(sizeOfTable);
-    // If the <ul> element has any child nodes, remove its first child nod
-    if (list.hasChildNodes()) {
-        for (var z = 0; z < sizeOfTable; z++)
-        list.removeChild(list.childNodes[z]);
-    }
+    document.getElementById("results").innerHTML = "";
+    
 }
 
