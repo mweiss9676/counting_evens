@@ -2,7 +2,11 @@
 var storage = [];
 function findNums () 
 {
+    //reset the table and the error codes to run a new calculation
     clearErrors();
+    document.getElementById("results").innerHTML = "";
+    storage = [];    
+    
     var num1 = parseInt(document.forms["numbersName"]["num1"].value);
     var num2 = parseInt(document.forms["numbersName"]["num2"].value);
     var num3 = parseInt(document.forms["numbersName"]["num3"].value);
@@ -12,7 +16,7 @@ function findNums ()
     {
         alert("Please enter a NUMBER");
         document.forms["numbersName"]["num1"].parentElement.className = "form-group has-error";
-        document.forms["numbersName"]["num1"].focus();
+        document.forms["numbersName"]["num1"].select();
         return false;
     }
     //checking that the second number is a number and less than the first number
@@ -20,14 +24,14 @@ function findNums ()
     {
         alert("Please enter a NUMBER that is greater than your first number");
         document.forms["numbersName"]["num2"].parentElement.className = "form-group has-error";
-        document.forms["numbersName"]["num2"].focus();
+        document.forms["numbersName"]["num2"].select();
         return false;
     }
     if (num3 == "" || isNaN(num3) || num3 > num2 || 0 >= num3)
     {
         alert("Please enter a NUMBER that is less than your second number");
         document.forms["numbersName"]["num3"].parentElement.className = "form-group has-error";
-        document.forms["numbersName"]["num3"].focus();
+        document.forms["numbersName"]["num3"].select();
         return false;
     }
 
@@ -57,6 +61,8 @@ function findNums ()
     }
 
     document.getElementById("results").innerHTML += populate;    
+
+    document.getElementById("resetButton").focus();
     
     //returning false so that the table doesn't go away
     return false;
@@ -80,5 +86,10 @@ function resetForm ()
     document.forms["numbersName"]["num3"].value = "";  
     document.getElementById("results").innerHTML = "";
     
+}
+
+function highlightFirstField() 
+{
+    document.forms["numbersName"]["num1"].select();
 }
 
